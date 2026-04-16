@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 @import "tailwindcss";
-=======
-@import 'tailwindcss';
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
 
 /* =====================
    THEME VARIABLES
@@ -20,27 +16,13 @@
   --primary-dark: #15803d;
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
 /* =====================
    GLOBAL
 ===================== */
 body {
   background: var(--bg);
   color: var(--text);
-<<<<<<< HEAD
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-=======
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    Arial,
-    sans-serif;
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
   overflow-x: hidden;
 }
 
@@ -82,11 +64,7 @@ body {
   background: var(--surface);
   border-radius: 14px;
   padding: 20px;
-<<<<<<< HEAD
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-=======
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border);
@@ -131,25 +109,13 @@ body {
 .contact-hero {
   text-align: center;
   padding: 90px 20px 60px;
-<<<<<<< HEAD
-  background: linear-gradient(
-    135deg,
-    rgba(22,163,74,0.08),
-    transparent
-  );
-=======
   background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), transparent);
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
 }
 
 .contact-badge {
   display: inline-block;
   padding: 6px 16px;
-<<<<<<< HEAD
-  background: rgba(22,163,74,0.15);
-=======
   background: rgba(22, 163, 74, 0.15);
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
   color: var(--primary);
   font-size: 12px;
   border-radius: 999px;
@@ -184,11 +150,7 @@ body {
   background: var(--surface);
   padding: 36px;
   border-radius: 18px;
-<<<<<<< HEAD
-  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
-=======
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
   border: 1px solid var(--border);
 }
 
@@ -225,11 +187,7 @@ body {
 
 .primary-btn:hover {
   transform: translateY(-2px);
-<<<<<<< HEAD
-  box-shadow: 0 16px 36px rgba(22,163,74,0.35);
-=======
   box-shadow: 0 16px 36px rgba(22, 163, 74, 0.35);
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
 }
 
 /* =====================
@@ -269,19 +227,11 @@ body {
 
 .career-card:hover {
   transform: translateY(-6px);
-<<<<<<< HEAD
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.open-badge {
-  background: rgba(22,163,74,0.15);
-=======
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .open-badge {
   background: rgba(22, 163, 74, 0.15);
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
   color: var(--primary);
   font-size: 12px;
   padding: 5px 12px;
@@ -303,11 +253,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-<<<<<<< HEAD
-  box-shadow: 0 12px 30px rgba(37,211,102,0.45);
-=======
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
 }
 
 .whatsapp-float:hover {
@@ -318,11 +264,6 @@ body {
    ANIMATIONS
 ===================== */
 @keyframes float {
-<<<<<<< HEAD
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-=======
   0% {
     transform: translateY(0);
   }
@@ -332,7 +273,6 @@ body {
   100% {
     transform: translateY(0);
   }
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
 }
 
 .animate-float {
@@ -350,17 +290,12 @@ body {
 }
 
 @media (max-width: 640px) {
-<<<<<<< HEAD
-  h1 { font-size: 28px; }
-  h2 { font-size: 22px; }
-=======
   h1 {
     font-size: 28px;
   }
   h2 {
     font-size: 22px;
   }
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
 }
 /* =====================
    CONTACT INFO CARD
@@ -376,11 +311,7 @@ body {
   border-radius: 18px;
   padding: 36px;
   border: 1px solid var(--border);
-<<<<<<< HEAD
-  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
-=======
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
 }
 
 .info-title {
@@ -469,13 +400,9 @@ select.input {
   background-position:
     calc(100% - 18px) calc(1em + 2px),
     calc(100% - 13px) calc(1em + 2px);
-<<<<<<< HEAD
-  background-size: 5px 5px, 5px 5px;
-=======
   background-size:
     5px 5px,
     5px 5px;
->>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
   background-repeat: no-repeat;
 }
 
