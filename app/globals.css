@@ -1,0 +1,505 @@
+<<<<<<< HEAD
+@import "tailwindcss";
+=======
+@import 'tailwindcss';
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+
+/* =====================
+   THEME VARIABLES
+===================== */
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f9fafb;
+  --border: #e5e7eb;
+
+  --text: #171717;
+  --text-muted: #555;
+
+  --primary: #16a34a;
+  --primary-dark: #15803d;
+}
+
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+/* =====================
+   GLOBAL
+===================== */
+body {
+  background: var(--bg);
+  color: var(--text);
+<<<<<<< HEAD
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+=======
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Arial,
+    sans-serif;
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+  overflow-x: hidden;
+}
+
+/* =====================
+   NAV
+===================== */
+.nav-links li a {
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-links li.active a {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 4px;
+}
+
+/* =====================
+   PRODUCTS PAGE
+===================== */
+.products-page {
+  padding: 60px 80px;
+}
+
+.products-title {
+  font-size: 32px;
+  color: var(--primary);
+  margin-bottom: 40px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.product-card {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 20px;
+<<<<<<< HEAD
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+=======
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+}
+
+.product-image {
+  background: var(--surface-soft);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-card h3 {
+  margin: 16px 0;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.product-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.quote-btn {
+  margin-top: auto;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.quote-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* =====================
+   CONTACT PAGE
+===================== */
+.contact-hero {
+  text-align: center;
+  padding: 90px 20px 60px;
+<<<<<<< HEAD
+  background: linear-gradient(
+    135deg,
+    rgba(22,163,74,0.08),
+    transparent
+  );
+=======
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), transparent);
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+}
+
+.contact-badge {
+  display: inline-block;
+  padding: 6px 16px;
+<<<<<<< HEAD
+  background: rgba(22,163,74,0.15);
+=======
+  background: rgba(22, 163, 74, 0.15);
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+  color: var(--primary);
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+.contact-hero h1 {
+  margin-top: 14px;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.contact-hero h1 span {
+  color: var(--primary);
+}
+
+.contact-hero p {
+  max-width: 620px;
+  margin: 10px auto;
+  color: var(--text-muted);
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 20px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+}
+
+.contact-form {
+  background: var(--surface);
+  padding: 36px;
+  border-radius: 18px;
+<<<<<<< HEAD
+  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+=======
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+  border: 1px solid var(--border);
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), #22c55e);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+<<<<<<< HEAD
+  box-shadow: 0 16px 36px rgba(22,163,74,0.35);
+=======
+  box-shadow: 0 16px 36px rgba(22, 163, 74, 0.35);
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+}
+
+/* =====================
+   CAREER PAGE
+===================== */
+.career-hero {
+  padding: 90px 20px 50px;
+  text-align: center;
+  background: var(--surface-soft);
+}
+
+.career-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.career-hero span {
+  color: var(--primary);
+}
+
+.career-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.career-card {
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-6px);
+<<<<<<< HEAD
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.open-badge {
+  background: rgba(22,163,74,0.15);
+=======
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.open-badge {
+  background: rgba(22, 163, 74, 0.15);
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+  color: var(--primary);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* =====================
+   WHATSAPP FLOAT
+===================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+<<<<<<< HEAD
+  box-shadow: 0 12px 30px rgba(37,211,102,0.45);
+=======
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes float {
+<<<<<<< HEAD
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+=======
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+  .products-grid,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+<<<<<<< HEAD
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+=======
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+}
+/* =====================
+   CONTACT INFO CARD
+===================== */
+.contact-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-card {
+  width: 100%;
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 36px;
+  border: 1px solid var(--border);
+<<<<<<< HEAD
+  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+=======
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+}
+
+.info-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.info-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.info-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 22px 0;
+}
+
+.info-item {
+  margin-bottom: 16px;
+}
+
+.info-item span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.info-item p {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.info-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+/* =====================
+   FORM INPUT SYSTEM (ENQUIRY MODAL)
+===================== */
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+
+  background: var(--surface-soft);
+  color: var(--text);
+
+  border: 1.5px solid var(--border);
+  font-size: 14px;
+
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* Placeholder */
+.input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+/* Hover */
+.input:hover {
+  border-color: var(--primary);
+}
+
+/* Focus */
+.input:focus {
+  border-color: var(--primary);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.18);
+}
+
+/* Select dropdown arrow fix */
+select.input {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(1em + 2px),
+    calc(100% - 13px) calc(1em + 2px);
+<<<<<<< HEAD
+  background-size: 5px 5px, 5px 5px;
+=======
+  background-size:
+    5px 5px,
+    5px 5px;
+>>>>>>> fcb3146ac3ec8f2eb51c38b89e92855960a48e99
+  background-repeat: no-repeat;
+}
+
+/* Textarea */
+textarea.input {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Disabled */
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* =====================
+   INFO TOOLTIP ICON
+===================== */
+.info-icon {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.group:hover .info-icon {
+  color: var(--primary);
+  border-color: var(--primary);
+}

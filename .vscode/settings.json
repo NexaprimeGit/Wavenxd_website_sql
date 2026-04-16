@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "nexaprimegit",
+        "projectKey": "NexaprimeGit_wavenxd-website"
+    }
+}
