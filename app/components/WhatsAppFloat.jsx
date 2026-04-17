@@ -1,9 +1,9 @@
 'use client';
 
 export default function WhatsAppFloat() {
-  const phoneNumber = '9561701860';
+  const phoneNumber = '9922802999';
   const message = encodeURIComponent(
-    'Hello WaveNxD Team, I would like to know more about your products.',
+    'Hello WaveNxD Technologies Team, I would like to know more about your products.',
   );
 
   return (

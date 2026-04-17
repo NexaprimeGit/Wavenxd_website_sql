@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import PropTypes from 'prop-types';
 import { addToCart, getCart } from '../lib/cart';
 import { ShoppingCart } from 'lucide-react';
 
@@ -118,3 +119,15 @@ export default function AccessoriesClient({ accessories }) {
     </section>
   );
 }
+
+AccessoriesClient.propTypes = {
+  accessories: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
