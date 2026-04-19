@@ -41,7 +41,7 @@
 
 // SQL
 import { NextResponse } from 'next/server';
-import pool from '@/lib/db';
+import pool from '@/app/lib/db';
 
 /**
  * @typedef {import('next/server').NextRequest} NextRequest
