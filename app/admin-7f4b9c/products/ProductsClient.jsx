@@ -87,7 +87,7 @@ export default function ProductsClient() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {products.map((product) => (
             <div
-              key={product._id}
+              key={product.id}
               className="bg-white p-4 rounded-xl shadow relative"
             >
               <Image

@@ -12,7 +12,7 @@ export default function ProductsGrid({ products = [], onRequestQuote }) {
     <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {products.map((product) => (
         <ProductCard
-          key={product._id}
+          key={product.id}
           product={product}
           onRequestQuote={onRequestQuote}
         />
