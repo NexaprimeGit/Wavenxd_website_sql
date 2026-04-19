@@ -122,7 +122,7 @@ export default function Footer() {
           </h4>
           <ul className="flex flex-col gap-2 text-xs sm:text-sm text-gray-700">
             <li>📍 Kolhapur, Maharashtra, India</li>
-            <li>📞 +91 98220 29999</li>
+            <li>📞 +91 9881233102</li>
             <li>✉️ info@wavenxd.com</li>
           </ul>
         </div>
