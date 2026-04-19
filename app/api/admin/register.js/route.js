@@ -34,7 +34,7 @@
 
 // SQL
 
-import pool from '@/lib/db';
+import pool from '@/app/lib/db';
 import bcrypt from 'bcryptjs';
 
 /**

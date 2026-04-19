@@ -1,52 +1,3 @@
-// import connectDB from '@/app/lib/mongodb';
-// import Admin from '@/app/models/admin';
-// import jwt from 'jsonwebtoken';
-// import bcrypt from 'bcryptjs';
-// /**
-//  * @typedef {import('next/server').NextRequest} NextRequest
-//  */
-
-
-// const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
-
-// export async function POST(req) {
-//   try {
-//     await connectDB();
-//     const { username, password } = await req.json();
-
-//     const admin = await Admin.findOne({ username });
-//     if (!admin)
-//       return Response.json(
-//         { success: false, error: 'Invalid credentials' },
-//         { status: 401 },
-//       );
-
-//     const isMatch = await bcrypt.compare(password, admin.password);
-//     if (!isMatch)
-//       return Response.json(
-//         { success: false, error: 'Invalid credentials' },
-//         { status: 401 },
-//       );
-
-//     const token = jwt.sign(
-//       { id: admin._id, username: admin.username },
-//       JWT_SECRET,
-//       { expiresIn: '2h' },
-//     );
-
-//     return Response.json({ success: true, token }, { status: 200 });
-//   } catch (error) {
-//     console.error(error);
-//     return Response.json(
-//       { success: false, error: 'Login failed' },
-//       { status: 500 },
-//     );
-//   }
-// }
-
-// SQL
-
-// import pool from '@/lib/db';
 import pool from '@/app/lib/db';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
@@ -57,14 +8,28 @@ import bcrypt from 'bcryptjs';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
 
+function stripWrappingBrackets(value) {
+  if (typeof value !== 'string') return value;
+  return value.replace(/^\[(.*)\]$/, '$1').trim();
+}
+
 export async function POST(req) {
   try {
     const { username, password } = await req.json();
+    const normalizedUsername = stripWrappingBrackets(username);
+    const normalizedPassword = typeof password === 'string' ? password.trim() : '';
 
-    // 🔍 Find admin
+    if (!normalizedUsername || !normalizedPassword) {
+      return Response.json(
+        { success: false, error: 'Username and password required' },
+        { status: 400 }
+      );
+    }
+
+    // Support legacy rows that were saved with surrounding square brackets.
     const [rows] = await pool.query(
-      `SELECT * FROM admins WHERE username = ?`,
-      [username]
+      `SELECT * FROM admins WHERE username = ? OR username = ?`,
+      [normalizedUsername, `[${normalizedUsername}]`]
     );
 
     if (rows.length === 0) {
@@ -75,9 +40,8 @@ export async function POST(req) {
     }
 
     const admin = rows[0];
-
-    // 🔐 Compare password (bcrypt stays SAME)
-    const isMatch = await bcrypt.compare(password, admin.password);
+    const storedPassword = stripWrappingBrackets(admin.password);
+    const isMatch = await bcrypt.compare(normalizedPassword, storedPassword);
 
     if (!isMatch) {
       return Response.json(
@@ -86,9 +50,8 @@ export async function POST(req) {
       );
     }
 
-    // 🎟️ Generate JWT
     const token = jwt.sign(
-      { id: admin.id, username: admin.username },
+      { id: admin.id, username: stripWrappingBrackets(admin.username) },
       JWT_SECRET,
       { expiresIn: '2h' }
     );
@@ -97,7 +60,6 @@ export async function POST(req) {
       { success: true, token },
       { status: 200 }
     );
-
   } catch (error) {
     console.error(error);
 
