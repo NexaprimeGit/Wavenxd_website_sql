@@ -30,7 +30,29 @@ export default function IndustriesTop({ industries = [], onSelect }) {
     }
   }, [openIndustry, total]);
 
-  if (!mounted || total === 0) return null;
+  if (!mounted) return null;
+
+  if (total === 0) {
+    return (
+      <section
+        className="relative w-full overflow-visible py-16"
+        style={{
+          background:
+            'linear-gradient(135deg, #ffffffff 0%, #f1f5f9 45%, #ffffffff 100%)',
+        }}
+      >
+        <div className="absolute -top-40 -left-40 w-[420px] h-[420px] bg-green-400/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -bottom-48 -right-48 w-[480px] h-[480px] bg-gray-300/20 rounded-full blur-3xl animate-float delay-3000"></div>
+
+        <div className="relative max-w-7xl mx-auto flex items-center justify-center py-20">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-gray-700 mb-2">No Industries Yet</h3>
+            <p className="text-gray-600">Industries will be displayed here soon.</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   const getIndex = (offset) => (current + offset + total) % total;
 
@@ -63,12 +85,13 @@ export default function IndustriesTop({ industries = [], onSelect }) {
         }`}
         onClick={() => setOpenIndustry(isOpen ? null : industry.slug)}
       >
-        {industry.image && (
+        {(industry.image || industry.slug) && (
           <Image
-            src={industry.image}
-            alt={industry.title}
+            src={industry.image || `/industries/${industry.slug}.jpg`}
+            alt={industry.title || industry.name}
             fill
             className="object-cover brightness-75"
+            priority={false}
           />
         )}
 
@@ -78,9 +101,9 @@ export default function IndustriesTop({ industries = [], onSelect }) {
           <div className="flex justify-center">
             <Icon size={20} className="text-green-400" />
           </div>
-          <div className="text-center">{industry.title}</div>
+          <div className="text-center">{industry.title || industry.name}</div>
           <div className="text-center text-xs font-normal">
-            {industry.tagline}
+            {industry.tagline || 'Industry Application'}
           </div>
         </div>
 

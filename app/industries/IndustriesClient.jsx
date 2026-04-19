@@ -31,6 +31,15 @@ export default function IndustriesClient({
     setSelectedContent(application);
   };
 
+  if (industries.length === 0) {
+    return (
+      <div className="w-full py-24 text-center">
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">No Industries Available</h2>
+        <p className="text-lg text-gray-600">Industries will be added soon. Check back later!</p>
+      </div>
+    );
+  }
+
   return (
     <>
       <IndustriesTop industries={industries} onSelect={handleSelect} />

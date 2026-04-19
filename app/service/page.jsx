@@ -4,11 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 
 const services = [
-  { title: "60 kHz", img: "/services/60khz.png", desc: "High-frequency ultrasonic spray trials" },
-  { title: "120 kHz", img: "/services/120khz.jpeg", desc: "Precision atomization at 120 kHz" },
-  { title: "180 kHz", img: "/services/60khz.png", desc: "Advanced high-frequency ultrasonic spray" },
+  { title: "60 kHz", img: "/services/60khz.jpg", desc: "High-frequency ultrasonic spray trials" },
+  { title: "120 kHz", img: "/services/120khz.jpg", desc: "Precision atomization at 120 kHz" },
+  { title: "180 kHz", img: "/services/60khz.jpg", desc: "Advanced high-frequency ultrasonic spray" },
   { title: "Spray Pyrolysis", img: "/services/spray-pyrolysis.jpg", desc: "Material deposition via spray pyrolysis" },
-  { title: "Spray System", img: "/services/60khz.jpg", desc: "Custom-designed spray solutions" },
+  { title: "Spray System", img: "/services/SpraySystem.jpg", desc: "Custom-designed spray solutions" },
   { title: "Ultrasonic Transducer", img: "/services/ultrasonic.jpg", desc: "Various ultrasonic transducers" },
   { title: "Charge Measurement System", img: "/services/charge-measurement.jpg", desc: "Accurate charge measurement tools" },
 ];
