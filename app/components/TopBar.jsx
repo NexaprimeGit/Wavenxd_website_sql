@@ -15,7 +15,7 @@ export default function TopBar() {
         <div className="max-w-7xl mx-auto px-4 py-2 flex justify-end items-center gap-6">
           <div className="flex items-center gap-1">
             <Phone size={14} />
-            <span className="hidden sm:inline">+91 9922802999</span>
+            <span className="hidden sm:inline">+91 9881233102</span>
           </div>
 
           <a

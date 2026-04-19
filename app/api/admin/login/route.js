@@ -46,7 +46,8 @@
 
 // SQL
 
-import pool from '@/lib/db';
+// import pool from '@/lib/db';
+import pool from '@/app/lib/db';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 

@@ -1,21 +1,52 @@
 import IndustriesClient from './IndustriesClient';
-import connectDB from './../lib/mongodb';
-import Industry from './../models/Industry';
+import pool from '../lib/db';
 
 async function getIndustries() {
-  await connectDB();
+  const [industries] = await pool.query(
+    `SELECT *
+     FROM industries
+     WHERE is_active = TRUE
+     ORDER BY created_at DESC`
+  );
 
-  const industries = await Industry.find({}).lean();
+  const industriesWithApplications = await Promise.all(
+    industries.map(async (industry) => {
+      const [applications] = await pool.query(
+        `SELECT *
+         FROM industry_applications
+         WHERE industry_id = ?`,
+        [industry.id]
+      );
 
-  // Convert _id to string for client
-  const cleanIndustries = industries.map((ind) => ({
-    ...ind,
-    _id: ind._id.toString(),
-    updatedAt: ind.updatedAt?.toISOString(), // optional, convert Dates
-    createdAt: ind.createdAt?.toISOString(),
-  }));
+      const appsWithPapers = await Promise.all(
+        applications.map(async (application) => {
+          const [papers] = await pool.query(
+            `SELECT title, link
+             FROM industry_application_papers
+             WHERE application_id = ?`,
+            [application.id]
+          );
 
-  return cleanIndustries;
+          return {
+            ...application,
+            _id: String(application.id),
+            technicalPapers: papers,
+          };
+        })
+      );
+
+      return {
+        ...industry,
+        _id: String(industry.id),
+        isActive: Boolean(industry.is_active),
+        createdAt: industry.created_at?.toISOString?.() ?? industry.created_at,
+        updatedAt: industry.updated_at?.toISOString?.() ?? industry.updated_at,
+        applications: appsWithPapers,
+      };
+    })
+  );
+
+  return industriesWithApplications;
 }
 
 export default async function IndustriesPage() {
