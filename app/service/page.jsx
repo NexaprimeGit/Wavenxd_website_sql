@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import ServiceEnquiryModal from "@/app/components/ServiceEnquiryModal";
 
 const services = [
   { title: "60 kHz", img: "/services/60khz.jpg", desc: "High-frequency ultrasonic spray trials" },
@@ -14,8 +15,8 @@ const services = [
 ];
 
 export default function ServicesPage() {
-  const [ , setOpen] = useState(false);
-  const [, setSelectedService] = useState("");
+  const [open, setOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
 
   return (
     <>
@@ -75,13 +76,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Enquiry Modal
+      {/* Enquiry Modal */}
       {open && (
         <ServiceEnquiryModal
           service={selectedService}
           onClose={() => setOpen(false)}
         />
-      )} */}
+      )}
     </>
   );
 }

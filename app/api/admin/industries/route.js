@@ -50,15 +50,16 @@ import pool from '@/app/lib/db';
 export async function GET() {
   try {
     const [industries] = await pool.query(
-      `SELECT * FROM industries ORDER BY name ASC`
+      `SELECT id, title, slug, tagline, image FROM industries ORDER BY title ASC`
     );
 
     return NextResponse.json(industries);
 
   } catch (error) {
-    console.error(error);
+    console.error('❌ Failed to fetch industries:', error.message);
+    console.error('Error details:', error);
     return NextResponse.json(
-      { message: 'Failed to fetch industries' },
+      { message: 'Failed to fetch industries', error: error.message },
       { status: 500 }
     );
   }
@@ -74,7 +75,10 @@ export async function POST(req) {
 
     const {
       name,
+      title,
       slug,
+      tagline = '',
+      image = '',
       applications = []
     } = body;
 
@@ -82,9 +86,9 @@ export async function POST(req) {
 
     // 1️⃣ Insert industry
     const [industryResult] = await conn.query(
-      `INSERT INTO industries (name, slug)
-       VALUES (?, ?)`,
-      [name, slug]
+      `INSERT INTO industries (name, title, slug, tagline, image)
+       VALUES (?, ?, ?, ?, ?)`,
+      [name || title, title || name, slug, tagline, image]
     );
 
     const industryId = industryResult.insertId;

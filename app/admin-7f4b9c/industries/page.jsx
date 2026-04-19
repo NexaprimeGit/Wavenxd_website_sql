@@ -3,11 +3,26 @@ import Link from 'next/link';
 export const dynamic = 'force-dynamic';
 
 async function getIndustries() {
-  const res = await fetch('http://localhost:3000/api/admin/industries', {
-    cache: 'no-store',
-  });
-  if (!res.ok) throw new Error('Failed to fetch industries');
-  return res.json();
+  try {
+    // Use absolute URL with environment variable
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3001';
+    
+    const res = await fetch(`${baseUrl}/api/admin/industries`, {
+      cache: 'no-store',
+    });
+    
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(`Failed to fetch industries: ${res.status} ${errorData?.message || ''}`);
+    }
+    
+    return await res.json();
+  } catch (error) {
+    console.error('getIndustries error:', error);
+    throw error;
+  }
 }
 
 export default async function IndustriesPage() {
@@ -22,7 +37,7 @@ export default async function IndustriesPage() {
       <ul className="space-y-4">
         {industries.map((ind) => (
           <li
-            key={ind._id}
+            key={ind.id}
             className="border rounded-lg p-4 hover:shadow-md transition"
           >
             <Link href={`/admin-7f4b9c/industries/${ind.slug}/applications`}>

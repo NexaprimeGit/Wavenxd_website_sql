@@ -25,6 +25,10 @@ export default function AdminLogin() {
 
       if (data.success) {
         localStorage.setItem('adminToken', data.token);
+        
+        // Dispatch custom event to notify navbar
+        window.dispatchEvent(new Event('adminLoginSuccess'));
+        
         router.replace('/admin-7f4b9c/dashboard');
       } else {
         setError(data.error || 'Invalid credentials');

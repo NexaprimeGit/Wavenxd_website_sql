@@ -1,29 +1,41 @@
 import { NextResponse } from 'next/server';
-import connectDB from '@/app/lib/mongodb';
-import Industry from '@/app/models/Industry';
+import pool from '@/app/lib/db';
+
 /**
  * @typedef {import('next/server').NextRequest} NextRequest
  */
 
-
 export async function GET(req, context) {
   try {
-    await connectDB();
     const { industrySlug } = await context.params;
 
-    const industry = await Industry.findOne({ slug: industrySlug });
-    if (!industry)
+    // Get industry by slug
+    const [industries] = await pool.query(
+      'SELECT id FROM industries WHERE slug = ?',
+      [industrySlug]
+    );
+
+    if (industries.length === 0) {
       return NextResponse.json(
         { message: 'Industry not found' },
-        { status: 404 },
+        { status: 404 }
       );
+    }
 
-    return NextResponse.json(industry.applications || []);
+    const industryId = industries[0].id;
+
+    // Get applications for this industry
+    const [applications] = await pool.query(
+      'SELECT id, industry_id, title, slug, description, image FROM industry_applications WHERE industry_id = ? ORDER BY title ASC',
+      [industryId]
+    );
+
+    return NextResponse.json(applications || []);
   } catch (error) {
     console.error(error);
     return NextResponse.json(
       { message: 'Failed to fetch applications' },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

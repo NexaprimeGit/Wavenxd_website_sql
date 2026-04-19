@@ -72,7 +72,7 @@
 // SQL
 
 import nodemailer from 'nodemailer';
-import pool from '@/lib/db';
+import pool from '@/app/lib/db';
 
 /**
  * @typedef {import('next/server').NextRequest} NextRequest

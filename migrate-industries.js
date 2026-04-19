@@ -36,11 +36,14 @@ async function migrateIndustriesToSQL() {
     for (const industry of industriesData) {
       // Insert industry
       const [industryResult] = await connection.execute(
-        `INSERT INTO industries (name, slug, is_active) 
-         VALUES (?, ?, ?)`,
+        `INSERT INTO industries (name, title, slug, tagline, image, is_active) 
+         VALUES (?, ?, ?, ?, ?, ?)`,
         [
           industry.title,
+          industry.title,
           industry.slug,
+          industry.tagline || '',
+          industry.image || '',
           industry.isActive ? 1 : 0,
         ]
       );

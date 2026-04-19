@@ -98,7 +98,7 @@
 // SQL
 
 import { NextResponse } from 'next/server';
-import pool from '@/lib/db';
+import pool from '@/app/lib/db';
 import { verifyAdminToken } from '@/app/middleware/adminAuth';
 
 const getBearerToken = (req) => {

@@ -112,7 +112,7 @@
 
 // SQL
 import { NextResponse } from 'next/server';
-import pool from '@/lib/db';
+import pool from '@/app/lib/db';
 
 export async function GET(req, { params }) {
   try {
@@ -125,7 +125,10 @@ export async function GET(req, { params }) {
     );
 
     if (industryRows.length === 0) {
-      return new Response('Industry not found', { status: 404 });
+      return NextResponse.json(
+        { message: 'Industry not found' },
+        { status: 404 }
+      );
     }
 
     // 2. Get application
@@ -136,7 +139,10 @@ export async function GET(req, { params }) {
     );
 
     if (appRows.length === 0) {
-      return new Response('Application not found', { status: 404 });
+      return NextResponse.json(
+        { message: 'Application not found' },
+        { status: 404 }
+      );
     }
 
     // 3. Get papers
@@ -151,7 +157,10 @@ export async function GET(req, { params }) {
 
   } catch (err) {
     console.error(err);
-    return NextResponse.json({ error: 'Failed' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch papers' },
+      { status: 500 }
+    );
   }
 }
 
