@@ -13,7 +13,7 @@ export default function ProductCard({ product, onRequestQuote }) {
         p-4 flex flex-col
         transition-all duration-300
         hover:shadow-2xl hover:-translate-y-2
-        md:h-[520px]
+        md:h-[350px]
       "
     >
       <Image
