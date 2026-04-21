@@ -139,19 +139,22 @@ export default function AboutPage() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { name: 'Dr. Alisha Patel', role: 'Chief Technology Officer' },
-            { name: 'Mr. David Chen', role: 'Head of Engineering' },
+            { name: 'Mrs. Ketaki A. Nigavekar ', role: 'Director', image: '/about/Director1.jpg' },
+            { name: 'Prof. Atul R. Nigavekar', role: 'Co-founder - WaveNxd Technologies Pvt. Ltd.', image: '/about/Founder1.jpg' },
             {
-              name: "Ms. Sarah O'Connor",
-              role: 'Director of Product Development',
+              name: "Prof. Vivek K. Desai",
+              role: 'Co-founder and Promoter - WaveNxd Technologies Pvt. Ltd.',
+              image: '/about/Founder2.jpg',
             },
-            { name: 'Eng. Robert Miller', role: 'Lead Research Scientist' },
+            { name: 'Mr. Pratapsinh K. Desai', role: 'Director', image: '/about/Director2.jpg' },
           ].map((m, i) => (
             <div
               key={i}
               className="bg-white p-6 rounded-xl shadow-md text-center"
             >
-              <div className="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4" />
+              <div className="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4 overflow-hidden" >
+                <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+              </div>
               <h4 className="font-semibold">{m.name}</h4>
               <p className="text-sm text-gray-600">{m.role}</p>
             </div>
