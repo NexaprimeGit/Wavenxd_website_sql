@@ -24,7 +24,7 @@ export default function ProductsClient() {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
-      setProducts(data || []);
+      setProducts(Array.isArray(data)? data : []);
     } catch (err) {
       console.error(err);
       setProducts([]);

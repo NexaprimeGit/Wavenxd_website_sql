@@ -282,8 +282,8 @@ export default function AddProduct() {
         {/* Applications section – behaves like normal dynamic section */}
         <div>
           <h3 className="font-semibold mb-2">Applications</h3>
-          {Object.entries(applications).map(([key, values]) => (
-            <div key={key} className="flex gap-2 mb-2">
+          {Object.entries(applications).map(([key, values], index) => (
+            <div key={index} className="flex gap-2 mb-2">
               {/* Application Name input */}
               <input
                 type="text"

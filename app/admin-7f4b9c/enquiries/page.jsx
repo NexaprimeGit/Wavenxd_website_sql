@@ -50,7 +50,7 @@ export default function EnquiriesPage() {
         <div className="max-h-[75vh] overflow-y-auto">
           {enquiries.map((e, i) => (
             <button
-              key={e._id}
+              key={e.id}
               onClick={() => setSelected(e)}
               className={`w-full text-left px-4 py-3 border-b hover:bg-green-50 transition
                 ${selected?._id === e._id ? 'bg-green-100' : ''}`}
